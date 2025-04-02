@@ -1,0 +1,141 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #e6f7ff, #d1ecf9);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+.nav-buttons {
+    display: flex;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-left: 8px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons a:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    background: linear-gradient(135deg, #e6f7ff, #d1ecf9);
+    color: #333;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.content-text {
+    max-width: 50%;
+}
+
+.content-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.content-text p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.content-text a {
+    text-decoration: none;
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 20px;
+    margin-right: 8px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.content-text a:hover {
+    background-color: #218838;
+}
+
+.content-image img {
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gstin {
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #666;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 20px; /* Add margin to separate from other content */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-graphic {
+    font-size: 1.8em; /* Size of the DNA graphic */
+    color: #007bff; /* Blue from the theme */
+    margin-right: 8px;
+  }
+  
+  .logo-text {
+    font-size: 1.6em; /* Size of the text */
+    font-weight: 600;
+    background: linear-gradient(to right, #007bff, #28a745); /* Blue to green gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
