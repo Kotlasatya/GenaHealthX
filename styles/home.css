@@ -2,11 +2,12 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    background-color: #f0f0f0;
     color: #333;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow: hidden; /* Add this line */
 }
 
 header {
@@ -24,19 +25,40 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 15px;
+    margin-left: 40px; /* Increased margin */
+    position: relative;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #555;
-    font-size: 0.9em;
+    font-size: 0.85em; /* Reduced font size */
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #007bff;
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    font-size: 1.2em; /* Adjust size as needed */
+}
+
+.cart-count {
+    background-color: red;
+    color: white;
+    font-size: 0.7em;
+    padding: 2px 5px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
 }
 
 .nav-buttons {
@@ -47,12 +69,13 @@ nav ul li a:hover {
     text-decoration: none;
     background-color: #007bff;
     color: #fff;
-    padding: 8px 15px;
-    border-radius: 20px;
-    margin-left: 8px;
-    font-size: 0.9em;
+    padding: 6px 12px; /* Reduced padding */
+    border-radius: 18px; /* Reduced border radius */
+    margin-left: 5px; /* Reduced margin */
+    font-size: 0.85em; /* Reduced font size */
     font-weight: 500;
     transition: background-color 0.3s ease;
+    margin-left: 25px;
 }
 
 .nav-buttons a:hover {
@@ -62,80 +85,126 @@ nav ul li a:hover {
 .content {
     background: linear-gradient(135deg, #e6f7ff, #d1ecf9);
     color: #333;
-    padding: 30px;
+    padding: 40px; /* Increased padding for better spacing */
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-grow: 1;
+    text-align: left; /* Aligns text properly */
 }
 
 .content-text {
-    max-width: 50%;
+    max-width: 48%;
+    margin-left: 70px; /* Adds space from the left side */
+    margin-top: center; /* Moves text slightly upwards */
 }
 
+
 .content-text h1 {
-    font-size: 2.5em;
+    font-size: 2.5em; /* Make the heading bigger */
+    font-weight: bold;
     margin-bottom: 15px;
-    color: #222;
+    color: #0056b3; /* A deep blue color for contrast */
+    text-transform: uppercase; /* Gives a strong visual appeal */
+    letter-spacing: 1px; /* Adds a stylish spacing */
 }
 
 .content-text p {
-    font-size: 1em;
+    font-size: 1.1em; /* Slightly larger for readability */
     margin-bottom: 20px;
-    color: #555;
-    line-height: 1.5;
+    color: #444;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 .content-text a {
     text-decoration: none;
-    background-color: #28a745;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 20px;
-    margin-right: 8px;
-    font-size: 0.9em;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+    background: linear-gradient(45deg, #007bff, #28a745); /* Stylish gradient button */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .content-text a:hover {
-    background-color: #218838;
+    background: linear-gradient(45deg, #0056b3, #1c7430);
+    transform: scale(1.05);
+    box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.content-image img {
-    max-width: 300px;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
+/* Stylish GSTIN Section */
 .gstin {
-    background-color: #fff;
-    padding: 10px;
+    background: linear-gradient(135deg, #e6f7ff, #d1ecf9); /* Match content background */
+    padding: 10px 15px;
     text-align: center;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 0.9em;
-    color: #666;
-    border-top: 1px solid #eee;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
-    margin-top: 20px; /* Add margin to separate from other content */
+    color: #444;
+    border-radius: 10px; /* Adds smooth edges */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 66px; /* Move it above the phone frame */
+    left: 74.5%;
+    transform: translateX(-50%); /* Centers it */
+    width: auto;
+    display: inline-block;
 }
+
+
+.phone-container {
+    width: 250px; /* Reduce phone frame width */
+    height: 520px; /* Reduce phone frame height */
+    margin: 5px auto;
+    position: relative;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 25px; /* Adjust border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-slider {
+    display: flex;
+    width: 300%;
+}
+
+.image-slider img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill; /* Force image to fill the phone frame */
+}
+
 
 .logo {
     display: flex;
     align-items: center;
-  }
-  
-  .logo-graphic {
-    font-size: 1.8em; /* Size of the DNA graphic */
-    color: #007bff; /* Blue from the theme */
-    margin-right: 8px;
-  }
-  
-  .logo-text {
-    font-size: 1.6em; /* Size of the text */
+}
+
+.logo-graphic {
+    font-size: 2em; /* Reduced graphic size */
+    color: #007bff;
+    margin-right: 5px; /* Reduced margin */
+}
+
+.logo-text {
+    font-size: 1.8em;
     font-weight: 600;
-    background: linear-gradient(to right, #007bff, #28a745); /* Blue to green gradient */
+    background: linear-gradient(to right, #007bff, #28a745);
     -webkit-background-clip: text;
+    background-clip: text; /* Add this line */
     -webkit-text-fill-color: transparent;
     display: inline-block;
-  }
+}
