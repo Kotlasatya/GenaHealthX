@@ -7,8 +7,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow: hidden; /* Add this line */
 }
+
+body::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, and Opera */
+  }
 
 header {
     background: linear-gradient(135deg, #e6f7ff, #d1ecf9);
@@ -97,6 +100,8 @@ nav ul li a:hover {
     max-width: 48%;
     margin-left: 70px; /* Adds space from the left side */
     margin-top: center; /* Moves text slightly upwards */
+    animation: slideInLeft 1s ease-out 0.5s forwards;
+    opacity: 0;
 }
 
 
@@ -137,30 +142,34 @@ nav ul li a:hover {
     box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Stylish GSTIN Section */
 .gstin {
-    background: linear-gradient(135deg, #e6f7ff, #d1ecf9); /* Match content background */
-    padding: 10px 15px;
+    background: linear-gradient(135deg, #e6f7ff, #d1ecf9);
+    padding: 10px 8px;
     text-align: center;
     font-weight: bold;
     font-size: 0.9em;
     color: #444;
-    border-radius: 10px; /* Adds smooth edges */
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 66px; /* Move it above the phone frame */
-    left: 74.8%;
-    transform: translateX(-50%); /* Centers it */
+    position:relative;
+    top: -405px;
+    left: 102%;
     width: auto;
     display: inline-block;
-}
+    transform: translateX(-50%); /* stays aligned to 74.8% left */
 
+    /* Animation */
+    opacity: 0;
+    animation: gstinSlideDown 0.8s ease-out 1.2s forwards;
+}
 
 .phone-container {
     width: 250px; /* Reduce phone frame width */
     height: 520px; /* Reduce phone frame height */
     margin: 5px auto;
     position: relative;
+    animation: slideInRight 1s ease-out 0.8s forwards;
+    opacity: 0;
 }
 
 .phone-screen {
@@ -208,3 +217,151 @@ nav ul li a:hover {
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gstinSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-30px); /* slide down without breaking left pos */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0); /* settle back to normal */
+    }
+}
+
+
+.scroll-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #e6f7ff, #d1ecf9);
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.scroll-section .scroll-content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-section.visible .scroll-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.scroll-section h2 {
+    color: #0056b3; /* Deep blue like your main title */
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.scroll-section h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.scroll-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+
+.scroll-section .highlight {
+    color: #28a745; /* Green for emphasis */
+    font-weight: bold;
+}
+
+.scroll-section .emphasized {
+    color: red;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.scroll-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #007bff, #28a745);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.scroll-section h2,
+.scroll-section h3,
+.scroll-section p {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-section.visible h2,
+.scroll-section.visible h3,
+.scroll-section.visible p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0; /* Adjust spacing as needed */
+    background-color: #e6f7ff; /* Optional, to match theme */
+    background: linear-gradient(135deg, #e6f7ff, #d1ecf9);
+    overflow: hidden;
+  }
+  
+  .scroll-image {
+    max-width: 100%;
+    height: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .scroll-image.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
