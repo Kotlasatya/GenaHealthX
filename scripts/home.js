@@ -71,3 +71,55 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", handleScrollAnimations);
     handleScrollAnimations(); // Trigger on load
 });
+document.addEventListener("DOMContentLoaded", () => {
+    function handleScrollAnimations() {
+        const scrollItems = document.querySelectorAll(".scroll-animate");
+
+        scrollItems.forEach((item) => {
+            const itemTop = item.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+
+            if (itemTop < screenHeight - 100) {
+                item.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", handleScrollAnimations);
+    handleScrollAnimations(); // run once on load
+});
+
+// Footer scroll reveal
+const footer = document.querySelector('.footer');
+
+function handleScrollReveal() {
+  const triggerBottom = window.innerHeight * 0.9;
+  const footerTop = footer.getBoundingClientRect().top;
+
+  if (footerTop < triggerBottom) {
+    footer.classList.add('show');
+  }
+}
+
+window.addEventListener('scroll', handleScrollReveal);
+
+
+// Show/hide back to top button
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+
