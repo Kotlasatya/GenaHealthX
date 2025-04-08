@@ -123,3 +123,19 @@ backToTopBtn.addEventListener("click", () => {
 });
 
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active'); // This line re-triggers animation on re-enter
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+  
+  document.querySelectorAll('.scroll-animate').forEach(el => {
+    observer.observe(el);
+  });
+  
